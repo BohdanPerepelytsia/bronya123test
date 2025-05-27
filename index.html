@@ -3,70 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Бронеплити Strikeface UA</title>
-  <meta name="description" content="Сертифіковані бронеплити за стандартами ДСТУ. Доставка по Україні. Strikeface UA." />
-  <link rel="icon" href="/public/favicon.ico" />
-  <script>
-    function validateAndSend(e) {
-      e.preventDefault();
-      const form = e.target;
-      const data = {
-        name: form.name.value.trim(),
-        phone: form.phone.value.trim(),
-        city: form.city.value.trim(),
-        branch: form.branch.value.trim()
-      };
-      if (!/^\+?380\d{9}$/.test(data.phone)) {
-        alert('Невірний формат телефону. Використовуйте +380...');
-        return;
-      }
-      fetch("/api/send", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-      })
-        .then(res => res.json())
-        .then(res => {
-          if (res.success) {
-            document.getElementById("response").innerText = "Заявку надіслано ✅";
-            form.reset();
-          } else {
-            document.getElementById("response").innerText = "Помилка: " + res.error;
-          }
-        });
-    }
-  </script>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Strikeface UA</title>
 </head>
-<body class="bg-gray-900 text-white font-sans">
-  <main class="max-w-3xl mx-auto px-4 py-10">
-    <header class="text-center mb-10">
-      <h1 class="text-3xl font-bold text-green-400">Бронеплити Strikeface UA</h1>
-      <p class="text-sm text-gray-400 mt-2">Сертифікований захист. 2.8 кг. Ціна комплекту — 11 500 грн</p>
-    </header>
-    <section class="mb-8">
-      <img src="/public/2.1.webp" alt="Фото бронеплити" class="w-full rounded shadow" />
-    </section>
-    <section class="mb-6">
-      <h2 class="text-xl font-semibold text-green-300">Про товар</h2>
-      <ul class="list-disc list-inside text-gray-300 mt-2">
-        <li>Захист від Б-32 7.62×54 мм</li>
-        <li>Сертифікація ДСТУ</li>
-        <li>Вага: 2.8 кг</li>
-        <li>3D-форма для зручності</li>
-      </ul>
-    </section>
-    <section class="mb-6">
-      <h2 class="text-xl font-semibold text-green-300">Замовити</h2>
-      <form onsubmit="validateAndSend(event)" class="space-y-4">
-        <input name="name" required placeholder="Імʼя" class="w-full p-2 bg-gray-800 border border-gray-700 rounded" />
-        <input name="phone" required placeholder="+380..." class="w-full p-2 bg-gray-800 border border-gray-700 rounded" />
-        <input name="city" required placeholder="Місто" class="w-full p-2 bg-gray-800 border border-gray-700 rounded" />
-        <input name="branch" required placeholder="Відділення Нової Пошти" class="w-full p-2 bg-gray-800 border border-gray-700 rounded" />
-        <button type="submit" class="w-full py-2 bg-green-600 hover:bg-green-700 transition rounded">Підтвердити замовлення</button>
-        <div id="response" class="text-sm text-green-400 pt-2" aria-live="polite"></div>
-      </form>
-    </section>
-  </main>
+<body>
+  <h1>Готово до деплою на Vercel</h1>
 </body>
 </html>
